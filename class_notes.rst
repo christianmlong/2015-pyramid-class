@@ -35,14 +35,62 @@ Pip
 
 Python comes with a package manager called ``pip``. This is used to automatically install the dependencies for a project, usually from the `Python Package Index <https://pypi.python.org/pypi>`_. The Python Package Index is abbreviated PyPI, and is affectionately known as the "Cheeseshop".
 
+Run this at the command line::
+
+    pip --version
+
+If you get a "not recognized" error, re-install Python and make sure to choose the installer option to add Python to the path. 
+
+The current version of pip as of this writing (2015-05-04) is 6.1.1. If ``pip --version`` is older than that, here's how to upgrade.::
+
+    python -m pip install --upgrade pip
+
+
+
 Virtualenv
 ~~~~~~~~~~~~~~~~~~~~
 
 We will be using virtual environments to isolate the projects we are working on. The advantage of using virtual environments is that we can work on multiple projects, and not have their dependencies interfere with each other. For example, we can work on a Django 1.6 project and a Django 1.7 project, without conflicts.
 
-To achieve this, virtualenvs have the concept of "activation". When a virtualenv is activated, only the packages installed in that virtualenv are available to the Python interpreter. There are two ways of activating a virtualenv: interactively, or by path.
+First, let's install virtualenv sitewide.::
 
-Interactive activation::
+    pip install virtualenv
+
+Virtualenv needs a place to store the virtual environments. Make a new folder at ``C:\PythonEnvs``.
+
+Let's make our first virtualenv::
+
+    virtualenv C:\PythonEnvs\my_virtual_env
+
+The output should look like this.::
+
+    Using base prefix 'C:\\Python34'
+    New python executable in C:\PythonEnvs\my_virtual_env\Scripts\python.exe
+    Installing setuptools, pip...done.    
+
+Now our virtualenv has been created, but has not yet been activated. When a virtualenv is activated, only the packages installed in that virtualenv are available to the Python interpreter. 
+
+::
 
     C:\Users\Me>C:\PythonEnvs\my_virtual_env\Scripts\activate.bat
     (my_virtual_env)C:\Users\Me>
+
+Our virtualenv has been created, and is now active. Notice that the command prompt has changed; the name of the virtualenv is displayed in parentheses.
+
+Let's use pip to see what packages are available in the Virtualenv.::
+
+    pip list
+
+results in::
+
+    pip (6.1.1)
+    setuptools (12.0.5)
+    virtualenv (12.1.1)
+
+
+Let's install something in to our virtualenv.::
+
+    pip install pyramid
+
+
+
