@@ -22,6 +22,8 @@ If you do not have Python 3.4 installed, download the Windows installer from `py
 
 When you are running the Windows installer, make sure to select "Register Extensions" and "Add python.exe to the Path". Note that this will change the default Python on your system to Python 3.4.
 
+.. image:: images/python3_installer.png
+
 After you have installed Python 3.4, open a new command prompt and type ``python --version``. You should now see that Python is installed and ready.
 
 On Windows 8 and 8.1, there is a quick keyboard shortcut for opening a new command prompt - Win-x, then c. 
