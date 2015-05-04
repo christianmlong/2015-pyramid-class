@@ -139,6 +139,13 @@ should look like this::
 
 The version numbers of the installed packages may differ from what is shown here.
 
+Virtualenvwrapper
+~~~~~~~~~~~~~~~~~~~~
+
+Git
+~~~~~~~~~~~~~~~~~~~~
+
+
 Next steps
 ~~~~~~~~~~~~~~~~~~~~
 
