@@ -34,6 +34,93 @@ Introduction to the Pyramid web framework
 
 ----
 
+Make a directory to hold our Pyramid app::
+
+    mkdir C:\Users\[My Username]\Projects\pyramid_todo
+
+or:: 
+    
+    mkdir ~/projects/pyramid_todo
+
+----
+
+Change to that directory::
+
+    cd C:\Users\[My Username]\Projects\pyramid_todo
+
+or:: 
+    
+    cd ~/projects/pyramid_todo
+
+----
+
+Use virtualenvwrapper to make a new virtualenv, and tie it to the project directory::
+
+    mkvirtualenv pyramid_todo
+    setprojectdir .
+
+or::
+ 
+    mkproject pyramid_todo
+
+----
+
+Make sure the virtualenv is activated. Your command prompt should look like this::
+
+    (pyramid_todo)C:\Users\[My Username]\Projects\pyramid_todo>
+
+or::
+
+    (pyramid_todo)~/projects/pyramid_todo$
+
+----
+
+Make sure we are using Python 3.4::
+
+    python --version
+
+should display::
+
+    python 3.4.3
+
+----
+
+Install Pyramid in to the virtualenv
+
+    pip install pyramid
+
+----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .
