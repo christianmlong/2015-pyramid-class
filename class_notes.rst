@@ -50,7 +50,7 @@ The current version of pip as of this writing (2015-05-04) is 6.1.1. If ``pip --
 Virtualenv
 ~~~~~~~~~~~~~~~~~~~~
 
-We will be using virtual environments to isolate the projects we are working on. The advantage of using virtual environments is that we can work on multiple projects, and not have their dependencies interfere with each other. For example, we can work on a Django 1.6 project and a Django 1.7 project, without conflicts.
+We will be using virtual environments to isolate the projects we are working on. The advantage of using virtual environments is that we can work on multiple projects, and not have their dependencies interfere with each other. For example, we can work on a Django 1.6 project and a Django 1.7 project side by side, without conflicts.
 
 First, let's install virtualenv sitewide.::
 
@@ -146,10 +146,13 @@ Pyramid
 Starting to use Pyramid
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that we have Pyramid installed, we can run it.
+Now that we have Pyramid installed, let's write our very first Pyramid app. 
 
 
 
---------------
 
 
+Make sure your virtualenv is activated.
+
+
+.
