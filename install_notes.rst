@@ -139,20 +139,7 @@ should look like this::
 
 The version numbers of the installed packages may differ from what is shown here.
 
-Pyramid
---------------------
+Next steps
+~~~~~~~~~~~~~~~~~~~~
 
-
-Starting to use Pyramid
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Now that we have Pyramid installed, let's write our very first Pyramid app. 
-
-
-
-
-
-Make sure your virtualenv is activated.
-
-
-.
+Now that we have Pyramid installed in a virtualenv, we can get started on writing our first Pyramid app.
