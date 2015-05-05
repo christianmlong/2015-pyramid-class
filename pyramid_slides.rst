@@ -38,8 +38,8 @@ Make a directory to hold our Pyramid app::
 
     mkdir C:\Users\[My Username]\Projects\pyramid_todo
 
-or:: 
-    
+or::
+
     mkdir ~/projects/pyramid_todo
 
 ----
@@ -48,8 +48,8 @@ Change to that directory::
 
     cd C:\Users\[My Username]\Projects\pyramid_todo
 
-or:: 
-    
+or::
+
     cd ~/projects/pyramid_todo
 
 ----
@@ -60,7 +60,7 @@ Use virtualenvwrapper to make a new virtualenv, and tie it to the project direct
     setprojectdir .
 
 or::
- 
+
     mkproject pyramid_todo
 
 ----
@@ -93,27 +93,67 @@ Install Pyramid in to the virtualenv
 
 
 
+The simplest Pyramid app
+
+.. code:: python
+
+    from wsgiref.simple_server import make_server
+    from pyramid.config import Configurator
+    from pyramid.response import Response
+
+    def hello_world(request):
+        return Response('Hello world!')
+
+    if __name__ == '__main__':
+        config = Configurator()
+        config.add_route('hello', '/hello')
+        config.add_view(hello_world, route_name='hello')
+        app = config.make_wsgi_app()
+        server = make_server('0.0.0.0', 8080, app)
+        server.serve_forever()
 
 
+----
+
+A closer look - Import
+
+Here we import just the things we need from the framework
+
+.. code:: python
+
+    from wsgiref.simple_server import make_server
+    from pyramid.config import Configurator
+    from pyramid.response import Response
+
+----
+
+A closer look - Our logic
+
+When a request arrives, we return a response. That's it!
+
+This is the entirety of our program. The rest is plumbing.
+
+.. code:: python
+
+    def hello_world(request):
+        return Response('Hello world!')
 
 
+----
 
+A closer look - The Plumbing
 
+Here we connect all the pieces together.
 
+.. code:: python
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if __name__ == '__main__':
+        config = Configurator()
+        config.add_route('hello', '/hello')
+        config.add_view(hello_world, route_name='hello')
+        app = config.make_wsgi_app()
+        server = make_server('0.0.0.0', 8080, app)
+        server.serve_forever()
 
 
 
@@ -124,4 +164,3 @@ Install Pyramid in to the virtualenv
 
 
 .
-
