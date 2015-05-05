@@ -95,6 +95,8 @@ Install Pyramid in to the virtualenv
 
 The simplest Pyramid app
 
+Save this to hello.py
+
 .. code:: python
 
     from wsgiref.simple_server import make_server
@@ -112,6 +114,25 @@ The simplest Pyramid app
         server = make_server('0.0.0.0', 8080, app)
         server.serve_forever()
 
+
+----
+
+Run it::
+
+    python hello.py
+
+
+----
+
+See it
+
+Go to ``http://localhost:8000/hello`` 
+
+----
+
+Stop it
+
+Press Ctrl-C in the command line window to stop the server
 
 ----
 
