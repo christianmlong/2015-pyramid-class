@@ -41,7 +41,7 @@ Pyramid Workflow
 
 Make a new virtualenv::
 
-    mkvirtualenv pyramid_todo    
+    mkvirtualenv pyramid_todo
     pip install pyramid WebTest
 
     python --version
@@ -65,7 +65,7 @@ Pyramid Scaffold::
 
     pcreate -s alchemy pyramid_todo
 
-    . . . 
+    . . .
 
     Welcome to Pyramid.  Sorry for the convenience.
     ===============================================================================
@@ -86,7 +86,7 @@ Let's look around at what Pyramid Scaffold made for us::
     tree /f
 
 or::
-    
+
     tree
 
 .. note::
@@ -111,18 +111,20 @@ Inside the pyramid_todo folder is another pyramid_todo folder. What does it cont
 
 ----
 
-Models
+Domain Models
 
 .. note::
 
     TODO talk about Models here
+
+    A domain model is a way of representing and acessing the oersistent data related to your application. For example, the data might be stored in a database. In this tutorial, we will be using models from SQL Alchemy.
 
 ----
 
 Git
 
 Let's get this newly-generated project checked in to git.
-    
+
 Change to the new Pyramid app directory::
 
     cd C:\Users\[My Username]\Projects\pyramid_todo
@@ -144,7 +146,7 @@ Git::
 
 Install dependencies
 
-The ``pcreate`` utilitu made us a new ``setup.py`` file. We can tell ``pip`` to install this new package and all its dependencies.::
+The ``pcreate`` utility made us a new ``setup.py`` file. We can tell ``pip`` to install this new package and all its dependencies.::
 
     pip install -e .
 
@@ -154,8 +156,50 @@ The ``pcreate`` utilitu made us a new ``setup.py`` file. We can tell ``pip`` to 
 
 ----
 
+Initialize the database::
+
+    initialize_pyramid_todo_db development.ini
+
+    [sqlalchemy.engine.base.Engine][MainThread] ()
+    [sqlalchemy.engine.base.Engine][MainThread] COMMIT
+    [sqlalchemy.engine.base.Engine][MainThread] CREATE UNIQUE INDEX my_index ON models (name)
+    . . .
+
+----
+
+We don't want to check the database in to version control, so we add it to ``.gitignore``.::
+
+    echo "pyramid_todo.sqlite" > .gitignore
+    git add .gitignore
+    git commit -m "Ignore the SQLite database"
+
+----
+
+Run our new project::
+
+    pserve development.ini
+
+View it in the browser at http://localhost:6543
+
+.. note::
+
+    Talk about the Pyramid debug toolbar. If the toolbar is not visible, check the ``debugtoolbar.hosts`` setting in development.ini.
+
+----
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+.
