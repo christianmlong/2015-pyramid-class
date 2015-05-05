@@ -39,9 +39,9 @@ Pyramid Workflow
 ----
 
 
-Check your virtualenv::
+Make a new virtualenv::
 
-    workon pyramid_todo    
+    mkvirtualenv pyramid_todo    
     pip install pyramid WebTest
 
     python --version
@@ -52,18 +52,18 @@ Check your virtualenv::
 
 Change to your project directory::
 
-    cd C:\Users\[My Username]\Projects\pyramid_todo
+    cd C:\Users\[My Username]\Projects\
 
 or::
 
-    cd ~/projects/pyramid_todo
+    cd ~/projects/
 
 
 ----
 
 Pyramid Scaffold::
 
-    pcreate -s alchemy todopyramid
+    pcreate -s alchemy pyramid_todo
 
     . . . 
 
@@ -71,7 +71,7 @@ Pyramid Scaffold::
     ===============================================================================
 .. note::
 
-    We are using the ``pcreate`` command line utility to make us a new Pyramid project with a lot of the configuration already filled in for us. This project will use SQLAlchemy to interact with its data store. The name of the new project is todopyramid.
+    We are using the ``pcreate`` command line utility to make us a new Pyramid project with a lot of the configuration already filled in for us. This project will use SQLAlchemy to interact with its data store. The name of the new project is pyramid_todo.
 
     Pyramid sets up a lot of new files, then prints its rather passive-agressive tagline.
 
@@ -81,7 +81,7 @@ Pyramid Scaffold
 
 Let's look around at what Pyramid Scaffold made for us::
 
-    cd todopyramid
+    cd pyramid_todo
 
     tree /f
 
@@ -93,11 +93,12 @@ or::
 
     It set up a whole Pyramid project structure. development.ini is configuration for our development environment, and production.ini is configuration for a production deployment.
 
+    setup.py is an ordinary setuptools file, like you can find in any python project.
 ----
 
 Going Deeper
 
-Inside the todopyramid folder is another todopyramid folder. What does it contain?::
+Inside the pyramid_todo folder is another pyramid_todo folder. What does it contain?::
 
     models.py
     tests.py
@@ -106,7 +107,7 @@ Inside the todopyramid folder is another todopyramid folder. What does it contai
 
 .. note::
 
-    Inside the todopyramid folder is another todopyramid folder. That has files for models, tests and views. We have already seen a simple view, our Hello World page. We have also already written some tests. Models are a new idea. Models define the data needed by our app.
+    Inside the pyramid_todo folder is another pyramid_todo folder. That has files for models, tests and views. We have already seen a simple view, our Hello World page. We have also already written some tests. Models are a new idea. Models define the data needed by our app.
 
 ----
 
@@ -117,4 +118,44 @@ Models
     TODO talk about Models here
 
 ----
+
+Git
+
+Let's get this newly-generated project checked in to git.
+    
+Change to the new Pyramid app directory::
+
+    cd C:\Users\[My Username]\Projects\pyramid_todo
+
+or::
+
+    cd ~/projects/pyramid_todo
+
+----
+
+Git::
+
+    git init
+    git add .
+    git commit -m "Inital package from pcreate alchemy scaffold"
+
+
+----
+
+Install dependencies
+
+The ``pcreate`` utilitu made us a new ``setup.py`` file. We can tell ``pip`` to install this new package and all its dependencies.::
+
+    pip install -e .
+
+.. note::
+
+    Here we are telling pip to install the current folder as an "editable" package. Pip will read the setup.py file, and install the packages that it says it requires.
+
+----
+
+
+
+
+
 
