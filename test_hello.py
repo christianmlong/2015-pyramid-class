@@ -16,3 +16,7 @@ class HelloWorldFunctionalTests(unittest.TestCase):
     def test_without_slash(self):
         res = self.testapp.get('/hello', status=200)
         self.assertTrue(b'Hello world!' in res.body)
+
+    def test_with_slash(self):
+        res = self.testapp.get('/hello/', status=200)
+        self.assertTrue(b'Hello world!' in res.body)

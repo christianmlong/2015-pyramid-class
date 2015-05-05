@@ -9,6 +9,8 @@ def main():
     config = Configurator()
     config.add_route('hello', '/hello')
     config.add_view(hello_world, route_name='hello')
+    config.add_route('hello_with_slash', '/hello/')
+    config.add_view(hello_world, route_name='hello_with_slash')
     app = config.make_wsgi_app()
     return app
 
