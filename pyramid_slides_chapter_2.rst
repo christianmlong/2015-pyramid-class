@@ -181,25 +181,40 @@ Run our new project::
 
 View it in the browser at http://localhost:6543
 
+Hit Ctrl-C to kill the server process when you are done.
 .. note::
 
     Talk about the Pyramid debug toolbar. If the toolbar is not visible, check the ``debugtoolbar.hosts`` setting in development.ini.
 
 ----
 
+Cleanup
 
+Get rid of some of the scaffolding that we don't need.
 
+Add a line to ``.gitignore`` for the ``pyramid.pid`` file
 
+----
 
+Cleanup
 
+Tell git to delete the ``static`` and ``templates`` directories::
 
+    cd pyramid_todo
+    git rm static/*
+    git rm templates/*
 
+Re-create an empty ``static`` directory.::
 
+    mkdir static
 
+Add an empty ``.gitignore`` file to the ``static`` directory, we will be using it later.
 
+Tell git about the new (empty) ``.gitignore`` file::
 
+    git add static/.gitignore
 
+Commit the cleanup to git::
 
+    git commit -m "Remove boilerplate templates"
 
-
-.
