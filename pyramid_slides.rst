@@ -154,6 +154,60 @@ Here we connect all the pieces together.
         app = config.make_wsgi_app()
         server = make_server('0.0.0.0', 8080, app)
         server.serve_forever()
+----
+
+A closer look - Zoom and Enhance
+
+"Run this code if you are running as a script, not if you are imported"
+
+.. code:: python
+
+    if __name__ == '__main__':
+
+
+----
+
+A closer look - Zoom and Enhance
+
+Tell Pyramid about the ``/hello`` url. When that url is requested, call our ``hello_world`` function.
+
+.. code:: python
+
+    if __name__ == '__main__':
+        config = Configurator()
+        config.add_route('hello', '/hello')
+        config.add_view(hello_world, route_name='hello')
+
+-----
+
+A closer look - Zoom and Enhance
+
+Connect our app to the server plumbing.
+
+.. code:: python
+
+    if __name__ == '__main__':
+        config = Configurator()
+        config.add_route('hello', '/hello')
+        config.add_view(hello_world, route_name='hello')
+        app = config.make_wsgi_app()
+        server = make_server('0.0.0.0', 8080, app)
+
+----
+
+A closer look - Zoom and Enhance
+
+Turn it loose!
+
+.. code:: python
+
+    if __name__ == '__main__':
+        config = Configurator()
+        config.add_route('hello', '/hello')
+        config.add_view(hello_world, route_name='hello')
+        app = config.make_wsgi_app()
+        server = make_server('0.0.0.0', 8080, app)
+        server.serve_forever()
 
 
 
