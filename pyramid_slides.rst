@@ -126,7 +126,7 @@ Run it::
 
 See it
 
-Go to ``http://localhost:8000/hello`` 
+Go to ``http://localhost:8000/hello``
 
 ----
 
@@ -231,6 +231,92 @@ Turn it loose!
         server.serve_forever()
 
 
+----
+
+Tests
+
+If it doesn't have automated tests, it's not done.
+
+----
+
+Our first test
+
+Put this in a file called test_hello.py
+
+.. code:: python
+
+    import unittest
+
+    class HelloWorldUnitTests(unittest.TestCase):
+        def test_hello_world(self):
+            from hello import hello_world
+            result = hello_world({})
+            self.assertEqual(result.body, b'hello!')
+
+
+----
+
+Install a test runner::
+
+    pip install pytest
+
+.. note::
+
+    Staying motivated to write tests is hard. A test runner makes it easier to write tests. It helps to eliminate some boilerplate, and formats the results nicely.
+
+----
+
+
+Run that test!::
+
+    python test_hello.py
+
+
+
+----
+
+Fail!::
+
+    ================================== FAILURES ===================================       
+    ____________________ HelloWorldUnitTests.test_hello_world _____________________       
+                                                                                          
+    self = <test_hello.HelloWorldUnitTests testMethod=test_hello_world>                   
+                                                                                          
+        def test_hello_world(self):                                                       
+            from hello import hello_world                                                 
+            result = hello_world({})                                                      
+    >       self.assertEqual(result.body, b'hello!')                                      
+    E       AssertionError: b'Hello world!' != b'hello!'                                  
+                                                                                          
+.. note::
+
+    Failing is good. Never trust a test you haven't seen fail.
+
+    py.test helpfully gives us the error message, and shows us the line that failed.
+
+----
+
+Now what?
+
+Fix the test or fix the code. Maybe both.
+
+----
+
+Let's fix the test::
+
+    self.assertEqual(result.body, b'Hello world!')
+
+And run it again:
+
+    py.test
+
+----
+
+Success!::
+
+    test_hello.py .
+
+    ========================== 1 passed in 0.64 seconds ===========================
 
 
 
@@ -238,4 +324,46 @@ Turn it loose!
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+i
 .
