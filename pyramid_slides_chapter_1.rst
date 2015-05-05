@@ -431,6 +431,11 @@ Fix the failing test. Make the main() function in hello.py look like this.
 We just added two lines, a route for ``/hello/``, and a view pointing that route to our existing ``hello_world`` function.
 
 
+.. code:: python
+
+        config.add_route('hello_with_slash', '/hello/')
+        config.add_view(hello_world, route_name='hello_with_slash')
+
 ----
 
 
