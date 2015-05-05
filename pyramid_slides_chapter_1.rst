@@ -319,6 +319,130 @@ Success!::
     ========================== 1 passed in 0.64 seconds ===========================
 
 
+----
+
+URLs::
+
+    http://localhost:8000/hello
+    http://localhost:8000/hello/
+
+.. note::
+
+    URLs are touchy. Our app is available at http://localhost:8000/hello. Try adding a slash at the end of that url. Sad Face.
+
+    The app should respond to both urls. Let's write a test to make sure it does so.
+
+----
+
+Functional tests::
+
+    pip install WebTest
+
+
+
+.. note::
+
+    Functional tests test the applcation as a whole. Unit tests test one behavior of a function or method. WebTest is a helper for testing web applications.
+
+----
+
+Break up our code to make it more easily testable
+
+.. code:: python
+
+    def main():
+        config = Configurator()
+        config.add_route('hello', '/hello')
+        config.add_view(hello_world, route_name='hello')
+        app = config.make_wsgi_app()
+        return app
+
+    if __name__ == '__main__':
+        app = main()
+        server = make_server('0.0.0.0', 8080, app)
+        server.serve_forever()
+
+----
+
+
+Write our first functional test
+
+.. code:: python
+
+    class HelloWorldFunctionalTests(unittest.TestCase):
+        def setUp(self):
+            from hello import main
+            app = main()
+            from webtest import TestApp
+            self.testapp = TestApp(app)
+
+        def test_without_slash(self):
+            res = self.testapp.get('/hello', status=200)
+            self.assertTrue(b'Hello world!' in res.body)
+
+----
+
+Run it::
+
+    py.test
+
+    test_hello.py ..
+
+    ========================== 2 passed in 0.76 seconds ===========================
+
+.. note::
+
+    Now we have two test passing. Make the new test fail, then fix it again.
+
+----
+
+Add a failing test for the trailing slash
+
+.. code:: python
+
+        def test_with_slash(self):
+            res = self.testapp.get('/hello/', status=200)
+            self.assertTrue(b'Hello world!' in res.body)
+
+
+.. note::
+
+    We wrote the test before the code it was supposed to test! Whaaaa????
+
+    This is the idea behind TDD. Test first!
+
+----
+
+Fix the failing test. Make the main() function in hello.py look like this.
+
+.. code:: python
+
+    def main():
+        config = Configurator()
+        config.add_route('hello', '/hello')
+        config.add_view(hello_world, route_name='hello')
+        config.add_route('hello_with_slash', '/hello/')
+        config.add_view(hello_world, route_name='hello_with_slash')
+        app = config.make_wsgi_app()
+        return app
+
+----
+
+We just added two lines, a route for ``/hello/``, and a view pointing that route to our existing ``hello_world`` function.
+
+
+----
+
+
+Run the test again::
+
+    py.test
+
+    test_hello.py ...
+
+    ========================== 3 passed in 0.75 seconds ===========================
+
+Success!
 
 
 
@@ -358,12 +482,4 @@ Success!::
 
 
 
-
-
-
-
-
-
-
-i
 .
