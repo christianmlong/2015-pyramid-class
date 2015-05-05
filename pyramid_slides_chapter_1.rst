@@ -36,42 +36,42 @@ Introduction to the Pyramid web framework
 
 Make a directory to hold our Pyramid app::
 
-    mkdir C:\Users\[My Username]\Projects\pyramid_todo
+    mkdir C:\Users\[My Username]\Projects\pyramid_hello
 
 or::
 
-    mkdir ~/projects/pyramid_todo
+    mkdir ~/projects/pyramid_hello
 
 ----
 
 Change to that directory::
 
-    cd C:\Users\[My Username]\Projects\pyramid_todo
+    cd C:\Users\[My Username]\Projects\pyramid_hello
 
 or::
 
-    cd ~/projects/pyramid_todo
+    cd ~/projects/pyramid_hello
 
 ----
 
 Use virtualenvwrapper to make a new virtualenv, and tie it to the project directory::
 
-    mkvirtualenv pyramid_todo
+    mkvirtualenv pyramid_hello
     setprojectdir .
 
 or::
 
-    mkproject pyramid_todo
+    mkproject pyramid_hello
 
 ----
 
 Make sure the virtualenv is activated. Your command prompt should look like this::
 
-    (pyramid_todo)C:\Users\[My Username]\Projects\pyramid_todo>
+    (pyramid_hello)C:\Users\[My Username]\Projects\pyramid_hello>
 
 or::
 
-    (pyramid_todo)~/projects/pyramid_todo$
+    (pyramid_hello)~/projects/pyramid_hello$
 
 ----
 
