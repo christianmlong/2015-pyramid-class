@@ -41,7 +41,7 @@ Pyramid Workflow
 
 Make a new virtualenv::
 
-    mkvirtualenv pyramid_todo
+    mkvirtualenv eleventodo
     pip install pyramid WebTest
 
     python --version
@@ -58,12 +58,16 @@ or::
 
     cd ~/projects/
 
+Make a new directory, and change to it:
+    
+    mkdir ElevenTodo
+    cd ElevenTodo
 
 ----
 
 Pyramid Scaffold::
 
-    pcreate -s alchemy pyramid_todo
+    pcreate -s alchemy eleventodo
 
     . . .
 
@@ -71,7 +75,7 @@ Pyramid Scaffold::
     ===============================================================================
 .. note::
 
-    We are using the ``pcreate`` command line utility to make us a new Pyramid project with a lot of the configuration already filled in for us. This project will use SQLAlchemy to interact with its data store. The name of the new project is pyramid_todo.
+    We are using the ``pcreate`` command line utility to make us a new Pyramid project with a lot of the configuration already filled in for us. This project will use SQLAlchemy to interact with its data store. The name of the new project is eleventodo.
 
     Pyramid sets up a lot of new files, then prints its rather passive-agressive tagline.
 
@@ -81,7 +85,7 @@ Pyramid Scaffold
 
 Let's look around at what Pyramid Scaffold made for us::
 
-    cd pyramid_todo
+    cd eleventodo
 
     tree /f
 
@@ -98,7 +102,7 @@ or::
 
 Going Deeper
 
-Inside the pyramid_todo folder is another pyramid_todo folder. What does it contain?::
+Inside the eleventodo folder is another eleventodo folder. What does it contain?::
 
     models.py
     tests.py
@@ -107,7 +111,7 @@ Inside the pyramid_todo folder is another pyramid_todo folder. What does it cont
 
 .. note::
 
-    Inside the pyramid_todo folder is another pyramid_todo folder. That has files for models, tests and views. We have already seen a simple view, our Hello World page. We have also already written some tests. Models are a new idea. Models define the data needed by our app.
+    Inside the eleventodo folder is another eleventodo folder. That has files for models, tests and views. We have already seen a simple view, our Hello World page. We have also already written some tests. Models are a new idea. Models define the data needed by our app.
 
 ----
 
@@ -127,11 +131,11 @@ Let's get this newly-generated project checked in to git.
 
 Change to the new Pyramid app directory::
 
-    cd C:\Users\[My Username]\Projects\pyramid_todo
+    cd C:\Users\[My Username]\Projects\eleventodo
 
 or::
 
-    cd ~/projects/pyramid_todo
+    cd ~/projects/eleventodo
 
 ----
 
@@ -158,7 +162,7 @@ The ``pcreate`` utility made us a new ``setup.py`` file. We can tell ``pip`` to 
 
 Initialize the database::
 
-    initialize_pyramid_todo_db development.ini
+    initialize_eleventodo_db development.ini
 
     [sqlalchemy.engine.base.Engine][MainThread] ()
     [sqlalchemy.engine.base.Engine][MainThread] COMMIT
@@ -169,7 +173,7 @@ Initialize the database::
 
 We don't want to check the database in to version control, so we add it to ``.gitignore``.::
 
-    echo "pyramid_todo.sqlite" > .gitignore
+    echo "eleventodo.sqlite" > .gitignore
     git add .gitignore
     git commit -m "Ignore the SQLite database"
 
@@ -200,7 +204,7 @@ Cleanup
 
 Tell git to delete the ``static`` and ``templates`` directories::
 
-    cd pyramid_todo
+    cd eleventodo
     git rm static/*
     git rm templates/*
 
@@ -217,4 +221,15 @@ Tell git about the new (empty) ``.gitignore`` file::
 Commit the cleanup to git::
 
     git commit -m "Remove boilerplate templates"
+
+----
+
+Run tests
+
+The Pyramid scaffold includes some basic tests to get you started.::
+
+    py.test eleventodo/tests.py
+
+    ========================== 2 passed in 0.87 seconds ===========================
+
 
