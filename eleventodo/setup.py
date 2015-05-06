@@ -19,9 +19,9 @@ requires = [
     'waitress',
     ]
 
-setup(name='pyramid_todo',
+setup(name='eleventodo',
       version='0.0',
-      description='pyramid_todo',
+      description='eleventodo',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
         "Programming Language :: Python",
@@ -36,12 +36,12 @@ setup(name='pyramid_todo',
       packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
-      test_suite='pyramid_todo',
+      test_suite='eleventodo',
       install_requires=requires,
       entry_points="""\
       [paste.app_factory]
-      main = pyramid_todo:main
+      main = eleventodo:main
       [console_scripts]
-      initialize_pyramid_todo_db = pyramid_todo.scripts.initializedb:main
+      initialize_eleventodo_db = eleventodo.scripts.initializedb:main
       """,
       )
